@@ -11,4 +11,11 @@ public class ProductTest {
 
         assertEquals(product.getUnitPrice(), BigDecimal.valueOf(15.65));
     }
+
+    @Test
+    public void shouldGetNameOfProduct() {
+        Product product = new Product("Dove", BigDecimal.valueOf(15.65));
+
+        assertEquals(product.getName(), "Dove");
+    }
 }

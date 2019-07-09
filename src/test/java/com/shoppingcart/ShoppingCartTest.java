@@ -28,25 +28,9 @@ public class ShoppingCartTest {
         for (BigDecimal unitPrice : shoppingCart.getAllUnitPrices()) {
             assertEquals(BigDecimal.valueOf(39.99), unitPrice);
         }
-    }
 
-    @Test
-    public void shouldAddAdditionalProductsToTheShoppingCart() {
-        shoppingCart.add(doveSoap);
-        shoppingCart.add(doveSoap);
-        shoppingCart.add(doveSoap);
-        shoppingCart.add(doveSoap);
-        shoppingCart.add(doveSoap);
-
-        shoppingCart.add(doveSoap);
-        shoppingCart.add(doveSoap);
-        shoppingCart.add(doveSoap);
-
-        assertEquals(8, shoppingCart.getTotalProduct());
-        assertEquals(BigDecimal.valueOf(319.92), shoppingCart.getTotalPrice());
-
-        for (BigDecimal unitPrice : shoppingCart.getAllUnitPrices()) {
-            assertEquals(BigDecimal.valueOf(39.99), unitPrice);
+        for(String productName: shoppingCart.getAllProductNames()) {
+            assertEquals(productName, "Dove");
         }
     }
 

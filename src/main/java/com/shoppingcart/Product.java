@@ -14,4 +14,6 @@ class Product {
     BigDecimal getUnitPrice() {
         return unitPrice;
     }
+
+    String getName() { return name; }
 }

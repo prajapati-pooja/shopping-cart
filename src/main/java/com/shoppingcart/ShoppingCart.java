@@ -15,7 +15,7 @@ class ShoppingCart {
     }
 
     BigDecimal getTotalPrice() {
-        Stream<BigDecimal> allUnitPrices = products.stream().map(Product::getUnitPrice);
+        Stream<BigDecimal> allUnitPrices = getProductsUnitPriceStream();
         BigDecimal totalPrice = allUnitPrices.reduce(BigDecimal.valueOf(0) , BigDecimal::add);
         return totalPrice.setScale(2, RoundingMode.HALF_UP);
     }
@@ -25,6 +25,18 @@ class ShoppingCart {
     }
 
     List<BigDecimal> getAllUnitPrices() {
-        return products.stream().map(Product::getUnitPrice).collect(Collectors.toList());
+        return getProductsUnitPriceStream().collect(Collectors.toList());
+    }
+
+    List<String> getAllProductNames() {
+        return getProductsNameStream().collect(Collectors.toList());
+    }
+
+    private Stream<BigDecimal> getProductsUnitPriceStream() {
+        return products.stream().map(Product::getUnitPrice);
+    }
+
+    private Stream<String> getProductsNameStream() {
+        return products.stream().map(Product::getName);
     }
 }
