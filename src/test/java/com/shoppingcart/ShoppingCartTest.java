@@ -65,12 +65,12 @@ public class ShoppingCartTest {
             assertEquals("Dove", doveProduct.getName());
             assertEquals(BigDecimal.valueOf(39.99), doveProduct.getUnitPrice());
         }
-
         for(Product axeDeoProduct: axeDeoProducts) {
             assertEquals("Axe Deo", axeDeoProduct.getName());
             assertEquals(BigDecimal.valueOf(99.99), axeDeoProduct.getUnitPrice());
         }
-
+        assertEquals(2, doveProducts.size());
+        assertEquals(2, axeDeoProducts.size());
         assertEquals(BigDecimal.valueOf(35), shoppingCart.calculateTotalTax(salesTaxRate));
         assertEquals(BigDecimal.valueOf(314.96), shoppingCart.getPriceWithTaxes(salesTaxRate));
     }
